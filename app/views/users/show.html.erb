@@ -48,7 +48,9 @@
       <% @attendances.each do |day| %>
         <tr>
           <td><%= l(day.worked_on, format: :short) %></td>
-          <td><%= $days_of_the_week[day.worked_on.wday] %></td>
+          <td class="<%= wday_color(day.worked_on) %>">
+            <%= $days_of_the_week[day.worked_on.wday] %>
+          </td>
           <td><%= working_show(day.started_at, "%H") %></td>
           <td><%= working_show(day.started_at, "%M") %></td>
           <td>

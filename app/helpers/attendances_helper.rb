@@ -8,6 +8,11 @@ module AttendancesHelper
     return false
   end
   
+  def wday_color(day)
+    return 'wday-6' if day.wday == 6
+    return 'wday-0' if day.wday == 0
+  end
+  
   def working_show(time, str)
     return time.strftime(str) if time.present?
   end
