@@ -44,4 +44,16 @@ class ApplicationController < ActionController::Base
     flash[:danger] = "ページ情報の取得に失敗しました、再アクセスしてください。"
     redirect_to root_url
   end
+  
+  def change_url(flag)
+    if @user.id == 1
+      if flag == 0
+        redirect_to @user
+      elsif flag == 1
+        redirect_to edit_basic_info_user_url
+      end
+    else
+      redirect_to users_url
+    end
+  end
 end

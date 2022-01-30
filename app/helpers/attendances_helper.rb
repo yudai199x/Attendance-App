@@ -14,10 +14,10 @@ module AttendancesHelper
   end
   
   def working_show(time, str)
-    return time.strftime(str) if time.present?
+    return time.floor_to(15.minutes).strftime(str) if time.present?
   end
   
   def working_times(start, finish)
-    format("%.2f", (((finish - start) / 60) / 60.0))
+    format("%.2f", (((finish.floor_to(15.minutes) - start.floor_to(15.minutes)) / 60) / 60.0))
   end
 end
